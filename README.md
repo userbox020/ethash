@@ -1,19 +1,33 @@
 # Installing ethash on Windows:
 
 Clone the project from github
+
 Open \src\libethash\mmap_win32.c for editing
+
 Add the following after the last #include statement
+
 #pragma comment(lib, "Shell32.lib")
+
 Open \src\python\core.c
+
 Replace:
+
 #include <alloca.h>
+
 with:
+
 #if defined(_WIN32) || defined(WIN32)
+
 #include <malloc.h>
+
 #else
+
 #include <alloca.h>
+
 #endif
+
 Run the following in the source code main folder
+
 setup.py install
 
 
